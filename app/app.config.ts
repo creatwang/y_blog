@@ -1,6 +1,6 @@
 export default defineAppConfig({
   ui: {
-    primary: '#F6821F',
+    primary: 'red',
     gray: 'slate',
     footer: {
       bottom: {

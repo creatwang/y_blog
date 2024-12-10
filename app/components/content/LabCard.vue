@@ -5,7 +5,7 @@
       {{ description }}
     </p>
     <div
-      class="mt-2 border dark:border-white/10 rounded-lg shadow-sm overflow-hidden"
+      class="my-2 border dark:border-white/10 rounded-lg shadow-sm overflow-hidden"
     >
       <div class="p-2 flex items-center gap-2 border-b dark:border-white/10">
         <div class="flex items-center w-full">

@@ -14,7 +14,7 @@
       :style="{
         top: Math.random() * 100 + '%',
         animationDelay: Math.random() * 1 + 's',
-        animationDuration: streakSpeed,
+        animationDuration: streakSpeed
       }"
       class="streak absolute left-0 w-1/5 h-0.5 bg-gradient-to-r from-transparent to-black/60 dark:to-white/40"
     ></span>
@@ -22,8 +22,8 @@
 </template>
 
 <script setup>
-const fast = ref(false);
-const streakSpeed = computed(() => (fast.value ? "0.5s" : "2s"));
+const fast = ref(false)
+const streakSpeed = computed(() => (fast.value ? '0.5s' : '2s'))
 </script>
 
 <style scoped>

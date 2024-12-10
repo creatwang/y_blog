@@ -50,9 +50,8 @@ const links = computed(() => [toc?.bottom?.edit && {
     <UPageBody prose>
       <ContentRenderer
         v-if="page.body"
-      >
-        <ContentRendererMarkdown :value="page.body" />
-      </ContentRenderer>
+        :value="page"
+      />
 
       <hr v-if="surround?.length">
 

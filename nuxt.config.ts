@@ -24,7 +24,12 @@ export default defineNuxtConfig({
   colorMode: {
     disableTransition: true
   },
-
+  content: {
+    markdown: {
+      toc: { depth: 4, searchDepth: 4 },
+      anchorLinks: { depth: 4 }
+    }
+  },
   nitro: {
     prerender: {
       routes: [
@@ -33,7 +38,6 @@ export default defineNuxtConfig({
       crawlLinks: true
     }
   },
-
   routeRules: {
     '/api/search.json': { prerender: true }
   },

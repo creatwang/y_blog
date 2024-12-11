@@ -1,0 +1,8 @@
+node_modules
+.eslintrc.js
+postcss.config.js
+nuxt.config.ts
+tailwind.config.js
+scripts
+public
+.npmrc

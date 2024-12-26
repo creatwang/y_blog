@@ -282,7 +282,7 @@ module.exports = {
 
 `number` 中声明 16 进制  8 进制 2进制，和 `js` 中的声明方法是一致的，包括 `strinig` 和 `boolean` 类型
 
-~~~ts
+~~~typescript
 Var num = 0b1001 //二进制
 var hexNum2 = 0x1f; //16进制
 var num2 = 0o123123 //8进制
@@ -298,14 +298,14 @@ var num2 = 0o123123 //8进制
 
 - null 的声明
 
-  ~~~ts
+  ~~~typescript
   const nl: null = null
   const name: string = null // 仅在关闭 strictNullChecks 时成立
   ~~~
   
 - `undefined` 的声明
 
-  ~~~ts
+  ~~~typescript
   const nl: undefined = undefined
   const age: number = undefined  // 仅在关闭 strictNullChecks 时成立
   ~~~
@@ -326,14 +326,14 @@ var num2 = 0o123123 //8进制
 
   1. 需要使用**泛型**，来声明，需要注意的是，这样的写法在react 中是有冲突的
 
-     ~~~ts
+     ~~~typescript
      //尖括号会和 jsx 的标签冲突
      const names: Array<string> = []
      ~~~
 
   2. 简便写法（**推荐写法**）
 
-     ~~~ts
+     ~~~typescript
      const names: string[] = []
      ~~~
 
@@ -361,7 +361,7 @@ var num2 = 0o123123 //8进制
 
 
 
-~~~ts
+~~~typescript
 //通过大括号表示该变量是对象类型
 const obj: {} = {name: "zhangsan"}
 //但是并没有表示对象属性的类型,这样的话会在 编写期间报错
@@ -408,7 +408,7 @@ findPostion({x:"1", y:"2", z: "123"})
 
    - 用处不大，只是用来接受对象类型的值
 
-     ~~~ts
+     ~~~typescript
      let obj: object = {
          name: "zhangsan"
        }
@@ -429,7 +429,7 @@ findPostion({x:"1", y:"2", z: "123"})
 
 ##### 4.3、动态给对象添加属性
 
-~~~ts
+~~~typescript
 //方法一： 使用索引签名
 interface Person {
   [key: string]: any;
@@ -477,7 +477,7 @@ obj.author = 'jiyik';
 
 - 这种情况下使用
 
-  ~~~ts
+  ~~~typescript
   function bar() {return "zhangsan"}
   function foo() {return 123}
   const flag: boolean = false
@@ -512,7 +512,7 @@ obj.author = 'jiyik';
 
 - 当函数返回一个 undefined 的时候也可以使用 void 表示，因为 `undefined` 和 `void` 都表示了一个没有意义的值
 
-~~~ts
+~~~typescript
 //当形参没有类型注解的时候，默认类型是any
 function sum(num1, num2): void {
 
@@ -546,7 +546,7 @@ function func3() { //返回值类型默认推导为 undefined
 
   > 如果多加了个 boolean 类型，会直接在**编写**时直接报错
 
-  ~~~ts
+  ~~~typescript
   function foo(flag: string | number/*| boolean*/) {
     switch(typeof flag) {
       case "string":
@@ -572,7 +572,7 @@ function func3() { //返回值类型默认推导为 undefined
 
   > 一下代码会在未运行时报错，因为有return关键字
 
-  ~~~ts
+  ~~~typescript
   //表示当前函数，永远不可能有返回值，
   function foo(): never {
     return
@@ -595,7 +595,7 @@ function func3() { //返回值类型默认推导为 undefined
 
 - **注意**：有多少个元素，就要设置多少个类型，直接限制了长度，否则在**编写时**会**直接报错**
 
-  ~~~ts
+  ~~~typescript
   const names: [string, number] = ["zhangasn", 123] 
   ~~~
 
@@ -613,7 +613,7 @@ function func3() { //返回值类型默认推导为 undefined
 
 > 就是给定长元素添加个名字，考虑到某些拼装对象太麻烦，我们完全可以使用具名元组来做简单替换。
 
-~~~ts
+~~~typescript
 const bar: [name: string, age: number] = ["zhangsan", 123]
 //可选索引
 const arr7: [name: string, age: number, male?: boolean] = ['linbudu', 599, true];
@@ -636,7 +636,7 @@ const arr7: [name: string, age: number, male?: boolean] = ['linbudu', 599, true]
 
 - 也可以不写void，**因为ts会进行自动推导**
 
-  ~~~ts
+  ~~~typescript
 function foo(): void {}
   
   const result = foo;
@@ -661,7 +661,7 @@ function foo(): void {}
 
 - 声明一个变量是函数类型
 
-~~~ts
+~~~typescript
 //元组，函数argu 虽然是没有作用的但是不能省略
 const arr: [string, (name: string, age: number) => void] = ["zhangsan", function(){}]
 ~~~
@@ -703,7 +703,7 @@ const foo: (argu: number) => void = function() {}
 
 - 但是会校验返回值
 
-~~~ts
+~~~typescript
 
 type calcType = (arg1: string, arg2: number) => void
 function calc(calctype: calcType) {}
@@ -719,7 +719,7 @@ calc(function() {
 
 > 当我们希望函数拥有自己属性的时候，可以使用类型签名
 
-~~~ts
+~~~typescript
 interface IBar {
     name: "zhangsan",
     age: 34,
@@ -738,7 +738,7 @@ bar()
 
 - **个人建议**：完全神经病，就**记住一点**需要new 的情况**直接class**，知道有这个东西就行
 
-~~~ts
+~~~typescript
 class Base {}
 interface IBase {
   new(): Base,
@@ -799,7 +799,7 @@ function foo( fn: IBase) {
 
 > **提示**：函数有默认值的情况，可以不声明类型
 
-~~~ts
+~~~typescript
 //ts 会进行类型推断， argu2 默认类型就是number 了
 function(argu: string, argu2 = 123)
 ~~~
@@ -814,7 +814,7 @@ function(argu: string, argu2 = 123)
 
 - 联合类型需要**进行类型的区分**，否则调用**非共有 `api`** 会进行**报错**， `narrow`: 缩小判断的范围
 
-~~~ts
+~~~typescript
 const message: string|number = 12
 //根据不同的类型进行不同的判断
 function foo(argu: string|boolean|number){
@@ -833,7 +833,7 @@ function foo(argu: string|boolean|number){
 
 #### 12、ts中剩余参数使用
 
-~~~ts
+~~~typescript
 function foo(...argu string[]) {}
 function bar(...argu any[]) {}
 ~~~
@@ -860,7 +860,7 @@ function bar(...argu any[]) {}
 
    
 
-   ~~~ts
+   ~~~typescript
    class Utils {
      public static identifier = "linbudu";
    
@@ -930,7 +930,7 @@ const str: string = "linbudu";
 
 - 当在一些参数类型为可选类型的时候，如果不进行传值的，内部在使用七变量属性的时候会根据 `tsconfig.json` 配置文件进行报错，提示逻辑是不严谨的
 
-~~~ts
+~~~typescript
 function foo(message?: string) :void {
     console.log(message!.length)
 }
@@ -954,7 +954,7 @@ function foo(message?: string) :void {
 const el = document.querySelector(".image")
 
 //使用断言之后，就可以获取到具体数据类型中的属性了
-console.log((el as HTMLImageElement).src)
+// console.log((el as HTMLImageElement).src)
 
 //2. <>的方式进行类型断言，但是react中对 <>的支持并不友好, 泛型的<> 是放在后面的
 const imgEl = <HTMLImageElement> el;
@@ -975,7 +975,7 @@ imgEl.src
 
 - **注意：**但是当使用形参的 `Person` 类型的变量的时候，是无法获取到子类中的属性和方法的 这个时候也需要断言
 
-  ~~~ts
+  ~~~typescript
   class Person {}
   
   class Student extends Person {
@@ -996,7 +996,7 @@ imgEl.src
 
 - 将 `string` 类型转化 成 `number` 类型，不推荐
 
-~~~ts
+~~~typescript
 //先转化为 any 或者 unknown 类型，在转化成number类型
 const firend: string = "zhangsan"
 const num: number = (firend as any) as number	
@@ -1021,7 +1021,7 @@ const num: number = (firend as any) as number
   1. 使用 **`let` 声明**的变量在**没**有明确指定类型的情况下会**自动推导类型**
   2. 使用 **`const` 声明** 的变量在**没**有明确指定类型的情况下会**值**当作**字面量类型**
 
-  ~~~ts
+  ~~~typescript
   //类型是 zhangsan 类型，因为是const 常量本身就不允许修改其他值
   const message = "zhangsan"
   //类型是 string 类型
@@ -1032,7 +1032,7 @@ const num: number = (firend as any) as number
 
 - **“字面量类型”** 要和 **“联合类型”** 在一起使用，才会更具有意义——用于限制只能输入的值
 
-  ~~~ts
+  ~~~typescript
   //限制该类型只能输入 “get” 和 “post”
   const method: "get"|"post" = "post"
   ~~~
@@ -1041,7 +1041,7 @@ const num: number = (firend as any) as number
 
 - 也会**结合断言**进行使用
 
-  ~~~ts
+  ~~~typescript
   type mm = "get"|"post"
   
   function foo(parm: {url:string, method: "get"|"post"}) {
@@ -1065,7 +1065,7 @@ const num: number = (firend as any) as number
 
 - ##### 字面量推理 `as const`（重要，也是官网的示例）
 
-  ~~~ts
+  ~~~typescript
   //参数类型解决方案三。在确定输入的没有问题的使用，
   //可以使用 断言 as const，这个也是官网提到的方法,可以进行内部推导,这个方法叫做字面量推理
   const temp = {
@@ -1098,7 +1098,7 @@ const num: number = (firend as any) as number
 
 
 
-~~~ts
+~~~typescript
 type Str = typeof str; // "linbudu"
 type Obj = typeof obj; // { name: string; }
 type Null = typeof nullVar; // null
@@ -1110,7 +1110,7 @@ type Func = typeof func; // (input: string) => boolean
 
 
 
-~~~ts
+~~~typescript
 function prinId(id: string | number) {
   if(typeof id === "string") {
     console.log(id.toUpperCase())
@@ -1126,7 +1126,7 @@ function prinId(id: string | number) {
 
 > 平等缩小一般用于字面量类型，进行判断
 
-~~~ts
+~~~typescript
 
 type position = "left"|"center"|"right"
 
@@ -1151,7 +1151,7 @@ function prinMessage(argu: position): void {
 
 - `instanceof` 判断构造函数的 `prototype` 属性的是否存在当前对象的原型链当中
 
-  ~~~ts
+  ~~~typescript
   class Student {
     action() {
       console.log("开始执行")
@@ -1179,7 +1179,7 @@ function prinMessage(argu: position): void {
 
   > 通常用于 **自定义类型**，或者确定某一个实例对象中是否包含该方法
 
-  ~~~ts
+  ~~~typescript
   
   type Cart = {
     runing: () => void
@@ -1201,7 +1201,7 @@ function prinMessage(argu: position): void {
 
 - **注意**：`this`参数通常声明在**第一位**
 
-~~~ts
+~~~typescript
 //如果函数是有外部作用域提供的，哪么ts 就不会自动推导出 this 的类型，需要使用参数的方式进行声明
 //注意：this参数通常声明在第一位
 function eating(this: {name: string}, message: string) {
@@ -1228,7 +1228,7 @@ obj.eating("haokaixin ")
 
 问题描述
 
-~~~ts
+~~~typescript
 function isString(input: unknown): boolean {
   return typeof input === "string";
 }
@@ -1253,7 +1253,7 @@ function foo(input: string | number) {
 
 需要注意的是，类型守卫函数中并不会对判断逻辑和实际类型的关联进行检查：（就是不会检查你是什么类型，你只是手动推导了一下，联合类型还是要自己判断）
 
-~~~ts
+~~~typescript
 function isString(input: unknown): input is string {
   return typeof input === "string";
 }
@@ -1274,7 +1274,7 @@ function foo(input: string | number) {
 
 要注意的是这里类型守卫，**返回的是联合类型**
 
-~~~ts
+~~~typescript
 export type Falsy = false | "" | 0 | null | undefined;
 
 export const isFalsy = (val: unknown): val is Falsy => !val;
@@ -1334,7 +1334,7 @@ export const isPrimitive = (val: unknown): val is Primitive => ['string', 'numbe
 
 
 
-~~~ts
+~~~typescript
 //重载函数不能有执行体
 function func(foo: number, bar: true): string;
 function func(foo: number, bar?: false): number;
@@ -1393,7 +1393,7 @@ const res3 = func(599, false); // number
 - 有抽象方法的类，就是抽象类
 - 属性可以是抽象的
 
-~~~ts
+~~~typescript
 abstract class Share {
     abstract sayHello():void
 }
@@ -1420,7 +1420,7 @@ abstract class Share {
 
 - 可调用接口：定义函数类型
 
-  ~~~ts
+  ~~~typescript
   //使用接口定义函数类型，接口定义函数类型一定要有大括号的，阅读性不是很好可以使用 type 声明
   interface funcType {
     //参数类型string，返回值类型number
@@ -1440,7 +1440,7 @@ abstract class Share {
 
   - 记住关键字 index 和 name，存索引用index，key-value用name
 
-  ~~~ts
+  ~~~typescript
   //用于限定索引-值类型
   type indexType = {
     [index: number]: string
@@ -1474,7 +1474,7 @@ abstract class Share {
 - 接口中**只做类型声明不做实现**
 - 接口可以实现**多继承**，其子类**必**须要**实现父类**的**所有方法声明**
 
-~~~ts
+~~~typescript
 interface Ainmal {
   getBaseInfo: () => void
 }
@@ -1505,7 +1505,7 @@ class Dog implements Ainmal ,Person {
 - 由于接口的多继承，重分体现了 `js` 的多态，使同一个实例具有多种不同的类型。这个时候可以使用**交叉类型**，这中类型的作用主要就体现在多继承中
 - 即是 `Ainmal` 类型 也是 `Person` 类型
 
-~~~ts
+~~~typescript
 interface Ainmal {
   getBaseInfo: () => void
 }
@@ -1523,7 +1523,7 @@ type interType = Ainmal & Person
 
 > 接口定义的类型，**接收对象引用赋值**的时候，会有一个**`freshness`类型擦除**的特性
 
-~~~ts
+~~~typescript
 interface infoType {
   name: string,
   address: string,
@@ -1568,7 +1568,7 @@ function printInfo(argu: infoType) {
 - `Ts` 提供了类型别名，可以统一声明一个对象类型进行使用，不支持继承和自动合并，更专注类型
 - 使用 `type` 关键字进行声明
 
-~~~ts
+~~~typescript
 //声明参数变量的联合类型，方便复用
 type unionType = string | number | boolean
 //统一声明对象类型
@@ -1602,7 +1602,7 @@ function foo(o: ObjType) {}
 
   > 在ts中要想将一个属性添加到 `windows` 对象当中去可以**利用**这个**合并的特点**
 
-  ~~~ts
+  ~~~typescript
   //windows对象 继承与Windows 接口，这样就相当于将 age 属性合并到 Windows 接口里
   //windows 作为子类，是需要实现接口中的属性和方法的
   interface Windows {
@@ -1630,7 +1630,7 @@ function foo(o: ObjType) {}
   > 当以**数组的方式**获取的时候是 **string 字符串**类型
   > 是key **对象的方式**获取enum 的时候返回的**是number类型**
 
-  ~~~TS
+  ~~~typescript
   export {}
   enum Direction {
     //可以自定义修改值，一般不会自动修改
@@ -1698,7 +1698,7 @@ function foo(o: ObjType) {}
   
 - 设置默认类型
 
-  ~~~ts
+  ~~~typescript
   type Rep<T = any> = {
     code: any
     data: T
@@ -1730,7 +1730,7 @@ function foo(o: ObjType) {}
 
 索引签名类型的一个常见场景是在重构 JavaScript 代码时，为内部属性较多的对象声明一个 `any` 的索引签名类型，以此来暂时支持**对类型未明确属性的访问**，并在后续一点点补全类型：
 
-~~~ts
+~~~typescript
 interface AnyTypeHere {
   [key: string]: any;
 }
@@ -1746,7 +1746,7 @@ const foo: AnyTypeHere['linbudu'] = 'any value';
 
 只有 `K in ` 属于映射类型的语法。
 
-~~~ts
+~~~typescript
 //将传入对象类型中的 “成员类型” 全部映射成string类型
 type Stringify<T> = {
 	//便利 keyof T 联合类型，映射到key
@@ -1774,7 +1774,7 @@ type Stringify<T> = {
 
 案例一：使用此方法来限制泛型传入的类型
 
-- ~~~ts
+- ~~~typescript
   interface ILength {
     length: number
   }
@@ -1792,7 +1792,7 @@ type Stringify<T> = {
 
   > `keyof` 是将目标对象中的所有**属性【注意：这里是属性并不是属性的类型，相当于是一个字面量的联合类型	】**取出来组成一个联合类型
 
-  ~~~ts
+  ~~~typescript
   //表示的意思就是，O 传入的泛型要是K类型中的属性的其中一种
   function foo<K, O extends keyof K>() {}
   //映射类型
@@ -1809,7 +1809,7 @@ type Stringify<T> = {
 
   > 为什么要用 extends 而不用联合类型，因为**泛型中的联合类型**会变为**分发类型-（相关分布式条件类型）**
 
-  ~~~ts
+  ~~~typescript
   function sum<T extends number | string>
   
   // 分发类型number[]|string[] 而不是 (number|string)[]
@@ -1829,7 +1829,7 @@ type Stringify<T> = {
 
 
 
-~~~ts
+~~~typescript
 type zhangType<K extend number = 1200>
 ~~~
 
@@ -1841,7 +1841,7 @@ type zhangType<K extend number = 1200>
 
 - 可以通过**继承的方法**，来进行**类型约束**
 
-~~~ts
+~~~typescript
   //函数泛型不能设置默认值，只能继承某一个类型才能够使用对应的属性和方法
   function foo<T extends string, T2 extends number>(name:T, age: T2) {
     console.log(name.length, age.toFixed)
@@ -1856,7 +1856,7 @@ type zhangType<K extend number = 1200>
 
 > class 使用泛型的创建对象的时候，可以同函数一样进行类型推导
 
-~~~ts
+~~~typescript
 class Point<T> {
   x: T
   y: T
@@ -1885,7 +1885,7 @@ const names2: Array<string> = ["abc", "cba", "nba"] // 不推荐(react jsx <>)
 
 - 接口支持给泛型添加一个**默认类型**
 
-~~~ts
+~~~typescript
 //要么给泛型添加一个默认类型
  interface IPerson<T1 = string, T2 = number> {
     name: T1
@@ -1908,7 +1908,7 @@ const names2: Array<string> = ["abc", "cba", "nba"] // 不推荐(react jsx <>)
 
   > 可以将类型映射为相同类型，之后可以通过Required改为可选类型。
 
-  ~~~ts
+  ~~~typescript
   interface Zhangsan {
       name: string,
       age: number,
@@ -1930,7 +1930,7 @@ const names2: Array<string> = ["abc", "cba", "nba"] // 不推荐(react jsx <>)
 
 - `Required`
 
-  ~~~ts
+  ~~~typescript
   // IKun都变成必填的
   type IKun2 = Required<IKun>
   
@@ -1947,7 +1947,7 @@ const names2: Array<string> = ["abc", "cba", "nba"] // 不推荐(react jsx <>)
 
   > 会过滤掉name和age类型
 
-  ~~~ts
+  ~~~typescript
   interface Zhangsan {
       name: string,
       age: number,
@@ -1960,7 +1960,7 @@ const names2: Array<string> = ["abc", "cba", "nba"] // 不推荐(react jsx <>)
 
 - `Readonly` 只读类型工具，也同样可以使用 `+` 显示标记
 
-~~~ts
+~~~typescript
 type Readonly<T> = {
     readonly [P in keyof T]: T[P];
 };
@@ -1980,7 +1980,7 @@ type Mutable<T> = {
 
   > 和上面一对，可多选
 
-  ~~~ts
+  ~~~typescript
   type ikun = Pick(Zhangsan,"name|age")
   ~~~
 
@@ -1990,7 +1990,7 @@ type Mutable<T> = {
 
   > 传入一个含有Type函数会返回其返回值类型类型，可用于函数组件，
 
-  ~~~ts
+  ~~~typescript
   const foo = ref<ReturnType<typeof Foo>>()
   ~~~
 
@@ -2000,7 +2000,7 @@ type Mutable<T> = {
 
   > 用于获取某实例的类型进行声明
 
-  ~~~ts
+  ~~~typescript
   //这样 formRef 的类型 就等于 ElForm的类型
   const formRef = ref<InstanceType<typeof ElForm>>()
   ~~~
@@ -2011,7 +2011,7 @@ type Mutable<T> = {
 
   > 用于**声明一组具有相同类型**的记录
 
-  ~~~ts
+  ~~~typescript
    type Record<K extends keyof any, T> = {
       [P in K]: T;
   };
@@ -2029,7 +2029,7 @@ type Mutable<T> = {
 
 - `infer` 只能在条件类型中使用
 
-~~~ts
+~~~typescript
 // infer R 中 R 就表示 待推断的类型，这样即可提取到返回值类型 R
 
 type FunctionReturnType<T extends Func> = T extends (
@@ -2049,7 +2049,7 @@ type SwapResult2 = Swap<[1, 2, 3]>; // 不符合结构，没有发生替换，�
 
 - `infer` 结构还可以是 `Promise` 结构
 
-~~~ts
+~~~typescript
 type PromiseValue<T> = T extends Promise<infer V> ? V : T;
 
 type PromiseValueResult1 = PromiseValue<Promise<number>>; // number
@@ -2062,7 +2062,7 @@ type PromiseValueResult2 = PromiseValue<number>; // number，但并没有发生�
 
 - 当 `Promise` 发生嵌套的时候 又会出现这样的问题
 
-~~~ts
+~~~typescript
 type PromiseValueResult3 = PromiseValue<Promise<Promise<boolean>>>; // Promise<boolean>，只提取了一层
 ~~~
 
@@ -2070,7 +2070,7 @@ type PromiseValueResult3 = PromiseValue<Promise<Promise<boolean>>>; // Promise<b
 
 -  当类型要嵌套多层的时候  `infer` 也支持**递归操作**
 
-~~~ts
+~~~typescript
 type PromiseValue<T> = T extends Promise<infer V> ? PromiseValue<V> : T;
 ~~~
 
@@ -2082,7 +2082,7 @@ type PromiseValue<T> = T extends Promise<infer V> ? PromiseValue<V> : T;
 
 
 
-~~~ts
+~~~typescript
 // 提取首尾两个
 type ExtractStartAndEnd<T extends any[]> = T extends [
   infer Start,
@@ -2136,7 +2136,7 @@ type SwapFirstTwo<T extends any[]> = T extends [
 
 - 因为有的时候，并不是只会通过裸露泛型参数，来**确保分布式特性能够发生**。在某些情况下，我们也会需要**包裹泛型参数**来**禁用掉分布式特性**
 
-~~~ts
+~~~typescript
 //是用交叉类型来阻止
 export type NoDistribute<T> = T & {};
 
@@ -2157,7 +2157,7 @@ type CompareRes2 = CompareUnion<1 | 2, 1>; // false
 
 理解：分发式条件类型想当于传入 `number` 先进行了一个判断，之后是 `boolean` 又进行了判断，最后返回它们两个的结果
 
-~~~ts
+~~~typescript
 type Naked<T> = T extends boolean ? "Y" : "N";
 
 type Res3 = Naked<number | boolean>;
@@ -2175,7 +2175,7 @@ type Res3 = Naked<number | boolean>;
 
 2、 之所以分布式条件类型要这么设计，我个人理解主要是为了**处理联合类型这种情况**，轻易地**进行集合之间的运算**，比如交集。
 
-~~~ts
+~~~typescript
 type Intersection<A, B> = A extends B ? A : never;
 
 type IntersectionRes = Intersection<1 | 2 | 3, 2 | 3 | 4>; // 2 | 3
@@ -2192,7 +2192,7 @@ type IntersectionRes = Intersection<1 | 2 | 3, 2 | 3 | 4>; // 2 | 3
 
 1. 当 `never` 当作泛型的时候，进行条件判断时，会返回 `never`
 
-~~~ts
+~~~typescript
 type Special3 = never extends never ? 1 : 2; // 1
 
 //只有 never 做为参数时会发生
@@ -2204,7 +2204,7 @@ type Special4Res = Special4<never>; // never
 
 2. 当 any 直接作为判断参数或泛型判断参数时，会返回结果的联合类型
 
-~~~ts
+~~~typescript
 // 直接使用，返回联合类型
 type Tmp1 = any extends string ? 1 : 2;  // 1 | 2
 
@@ -2248,7 +2248,7 @@ type IsNeverRes2 = IsNever<"linbudu">; // false
   >
   > 命名空间在 TypeScript 早期时，称之为内部模块，主要目的是将一个模块内部再进行作用域的划分，防止一些命名冲突的问题。
 
-~~~ts
+~~~typescript
 //支持命名控件导出
 export namespace time {
   //所有对外使用的 方法需要导出才能使用
@@ -2324,7 +2324,7 @@ time.foo()
 
 
 
-~~~ts
+~~~typescript
 //声明模块
 declare module "lodash" {
   //模块中所包含的方法,之做类型声明
@@ -2466,7 +2466,7 @@ tsconfing 给 tsc编译整个ts文件的时候给它一些对应的配置
 
 例： 
 
-~~~ts
+~~~typescript
 
 type pType = {
     name: string

@@ -186,7 +186,7 @@ export default function (el: HTMLElement) {
 
 ### 2、echarts 组件封装
 
-~~~ts
+~~~typescript
 const props = withDefaults(
   defineProps<{
     options: EChartsOption

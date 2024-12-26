@@ -525,7 +525,7 @@ tsconfig.json		#Typescript的配置文件
 
 - [更多配置查看官方文档]( https://nuxt.com/docs/api/configuration/nuxt-config)：
 
-  ~~~ts
+  ~~~typescript
   // https://nuxt.com/docs/api/configuration/nuxt-config
   export default defineNuxtConfig({
     //1、定义运行时的环境
@@ -1489,7 +1489,7 @@ export default defineNuxtConfig({
 
   > pending 是响应的状态，成功 `true`， 失败-等待 `false`
 
-  ~~~ts
+  ~~~typescript
   const { data, refresh, pending } = await useFetch<IResultData>(
     BASE_URL + "/goods",
     {

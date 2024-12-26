@@ -4,7 +4,7 @@
 
    - 但是不报错的原因是，volar插件的作用
 
-   ~~~ts
+   ~~~typescript
    declare module "*.vue" {
      import { DefineComponent } from "vue"
      const compoment: DefineComponent<{}, {}, any>

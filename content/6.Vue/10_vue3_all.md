@@ -4559,7 +4559,7 @@ const { changeName, incrementLevel, changeInfo } = newMutations
 
 config.ts
 
-~~~ts
+~~~typescript
 // 1.方式一: 手动的切换不同的环境(不推荐)
 // const BASE_URL = 'http://coderwhy.org/dev'
 // const BASE_NAME = 'coderwhy'
@@ -4594,7 +4594,7 @@ export { BASE_URL, TIME_OUT }
 
 index.ts
 
-~~~ts
+~~~typescript
 import axios from 'axios'
 import type { AxiosInstance } from 'axios'
 import type { HYRequestInterceptors, HYRequestConfig } from './type'
@@ -4728,7 +4728,7 @@ export default HYRequest
 
 type.ts
 
-~~~ts
+~~~typescript
 import type { AxiosRequestConfig, AxiosResponse } from 'axios'
 
 export interface HYRequestInterceptors<T = AxiosResponse> {

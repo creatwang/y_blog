@@ -13,7 +13,7 @@ hero:
     - label: Get started
       icon: i-heroicons-arrow-right-20-solid
       trailing: true
-      to: '/getting-started'
+      to: '/javascript/web-api'
       size: lg
     - label: Use this template
       icon: i-simple-icons-github
@@ -32,7 +32,7 @@ features:
       icon: 'i-simple-icons-nuxtdotjs'
       trailingIcon: 'i-heroicons-arrow-right-20-solid'
       color: 'gray'
-      to: 'https://ui.nuxt.com/pro'
+      to: 'https://github.com/creatwang'
       target: '_blank'
       size: lg
   items:

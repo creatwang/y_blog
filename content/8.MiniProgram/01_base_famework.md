@@ -3,7 +3,7 @@ title: 原生小程序基础语法
 description: 可以快速回顾，对比vue语法.
 ---
 
-# 咋三
+# 案例
 ::LabCard{title="Rocket" description="A super fast rocket animation" :showUsageTab=false :showCreditTab=true}
 
 #preview
@@ -282,8 +282,8 @@ description: 可以快速回顾，对比vue语法.
 
 - 小程序开发框架
 
-  - mpvue：18年就不在维护了
-  - wepy：腾讯开发的，用的也比较少
+    - mpvue：18年就不在维护了
+    - wepy：腾讯开发的，用的也比较少
 
 
 
@@ -295,7 +295,7 @@ description: 可以快速回顾，对比vue语法.
 
   > 京东团队开发和维护的，Taro3.x之后，支持Vue3、React Hook写法等，也是可以多端适配的
 
-  - 但是适配移动端的时候，只能转换为 RN，之后在转换为原生的，
+    - 但是适配移动端的时候，只能转换为 RN，之后在转换为原生的，
 
 # 第二节、小程序的配置文件(重点)
 
@@ -377,22 +377,22 @@ description: 可以快速回顾，对比vue语法.
 
 - ##### 不已 `/` 开头的配置：
 
-  - `app.json` 中的 `pages`
+    - `app.json` 中的 `pages`
 
-  - `tabbar list` 中定义的 url，开头不添加 `/` ,
+    - `tabbar list` 中定义的 url，开头不添加 `/` ,
 
-  - 模块化导入
+    - 模块化导入
 
-    > 不支持 `/` 要使用相对路径导入，也不会自动找 `index.js` 文件
+      > 不支持 `/` 要使用相对路径导入，也不会自动找 `index.js` 文件
 
 
 
 - ##### `/`开头的配置：
 
-  - 路径进行**跳转页面**路径必须要使用 `/`
-  - **引入Component** 的时候可以使用开头 `/`
-  - **图片**可以用 `/` 开头
-  - **`wxs` 资源**都可以使用 `/` 开头的方式在，根路径查找资源
+    - 路径进行**跳转页面**路径必须要使用 `/`
+    - **引入Component** 的时候可以使用开头 `/`
+    - **图片**可以用 `/` 开头
+    - **`wxs` 资源**都可以使用 `/` 开头的方式在，根路径查找资源
 
 # 第三节、和 vue 架构快速对比进行使用
 
@@ -439,7 +439,7 @@ description: 可以快速回顾，对比vue语法.
 
   > 注意：这里app实例中的数据属性**并不是响应式的。**
 
-  - 通常定义全局属性定义的规范就是 `globalData` 对象
+    - 通常定义全局属性定义的规范就是 `globalData` 对象
 
 
 #### App生命周期和全局变量
@@ -448,12 +448,12 @@ App[生命周期](https://developers.weixin.qq.com/miniprogram/dev/reference/api
 
    > 小程序初始化的时候进行回调，**只会在创建的时候调用一次**
 
-  - 在**事件对象**当中，可以通过 `sence` 编号进行**判断小程序的[进入场景](https://developers.weixin.qq.com/miniprogram/dev/reference/scene-list.html
-    )**，由于 `onlaunch` 方法只会调用一次，可以根据需取，也可以选择在 `onshow` 程序切换到前台的时候进行处理。
+- 在**事件对象**当中，可以通过 `sence` 编号进行**判断小程序的[进入场景](https://developers.weixin.qq.com/miniprogram/dev/reference/scene-list.html
+  )**，由于 `onlaunch` 方法只会调用一次，可以根据需取，也可以选择在 `onshow` 程序切换到前台的时候进行处理。
 
-    > 例：是扫码进入的还是，转发进入的
+  > 例：是扫码进入的还是，转发进入的
 
-  - 通常会在这个生命周期函数当中**进行登录操作**，或者**读取本地数据(storage) token**，在或者**请求数据**
+- 通常会在这个生命周期函数当中**进行登录操作**，或者**读取本地数据(storage) token**，在或者**请求数据**
 
 2. onShow
 
@@ -498,10 +498,10 @@ console.log(appInstance.globalData) // I am global data
 - 参数也同样是 options 对象
 
 - page 创建之后常见的操作
-  1. 在生命周期函数中**发送网络请**求，从服务器获取数据；
-  2. **初始化一些数据**，以方便被wxml引用展示；
-  3. **监听wxml中的事件**，绑定对应的事件函数；
-  4. 其他一些监听（比如**页面滚动、上拉刷新、下拉加载**更多等）；
+    1. 在生命周期函数中**发送网络请**求，从服务器获取数据；
+    2. **初始化一些数据**，以方便被wxml引用展示；
+    3. **监听wxml中的事件**，绑定对应的事件函数；
+    4. 其他一些监听（比如**页面滚动、上拉刷新、下拉加载**更多等）；
 
 
 
@@ -556,7 +556,7 @@ console.log(appInstance.globalData) // I am global data
 
 - 上拉和下拉的监听
 
-  - 默认下拉在 json 文件中手动开启，`enablePullDownRefresh：true`，**下拉时会自动回调`onPullDownRefresh()`**
+    - 默认下拉在 json 文件中手动开启，`enablePullDownRefresh：true`，**下拉时会自动回调`onPullDownRefresh()`**
 
 
 
@@ -621,15 +621,15 @@ console.log(appInstance.globalData) // I am global data
 
 5. ##### scroll-view
 
-  - 注意：`scroll-view`要有高度**不能**被内容撑起来，宽度默认占满整行的
+- 注意：`scroll-view`要有高度**不能**被内容撑起来，宽度默认占满整行的
 
-  - **要设置 scroll-x 属性**
+- **要设置 scroll-x 属性**
 
-  - 新版本设置flex 的话 ，要手**动开启一下添加 `enable-flex` 属性**, 才可以使用 flex 布局
+- 新版本设置flex 的话 ，要手**动开启一下添加 `enable-flex` 属性**, 才可以使用 flex 布局
 
-  - 常见事件
+- 常见事件
 
-    > 具体看官方文档 [组件]
+  > 具体看官方文档 [组件]
 
     1. 滚动事件 scrollTop 存在event 对象当中
     2. 滚动到边界的事件
@@ -655,17 +655,17 @@ console.log(appInstance.globalData) // I am global data
 
    > 默认是 block ,设置了 size 之后就是 inlin-block 了
 
-  - **获取手机号**：`open-type: "getPhoneNumber"` 属性可以获取手机号，但是要是企业的小程序个人的获取不了
+- **获取手机号**：`open-type: "getPhoneNumber"` 属性可以获取手机号，但是要是企业的小程序个人的获取不了
 
-    > 获取用户手机号，**可以从 `bindgetphonenumber` 回调中获取到用户信息**，具体说明 （*小程序插件中不能使用*）
+  > 获取用户手机号，**可以从 `bindgetphonenumber` 回调中获取到用户信息**，具体说明 （*小程序插件中不能使用*）
 
-  - **转发**：可以进行转发 share 具体查看官方文档
+- **转发**：可以进行转发 share 具体查看官方文档
 
-  - **获取用户信息**：之前的 getUserInfo 已经被调整了 获取不到用户的信息了，这里**使用 `wx.getUserProfile` Api 进行获取**
+- **获取用户信息**：之前的 getUserInfo 已经被调整了 获取不到用户的信息了，这里**使用 `wx.getUserProfile` Api 进行获取**
 
-    > 参数同样也是 options 对象，有个**必填选项，desc**：传入获取用户信息的用途，**支持Promise**
+  > 参数同样也是 options 对象，有个**必填选项，desc**：传入获取用户信息的用途，**支持Promise**
 
-  - 经过测试，应该不能在生命周期函数中进行调用
+- 经过测试，应该不能在生命周期函数中进行调用
 
 
 
@@ -673,7 +673,7 @@ console.log(appInstance.globalData) // I am global data
 
    > 自定义组件 和 input组件，也支持了双向绑定，**简易双向绑定。**
 
-  - 为什么说是简易绑定呢，因为不同于vue小程序**不存在单项数据流**，直接在子组件改即可。
+- 为什么说是简易绑定呢，因为不同于vue小程序**不存在单项数据流**，直接在子组件改即可。
 
  ```html
      <input model:value="{{val}}" />
@@ -682,7 +682,7 @@ console.log(appInstance.globalData) // I am global data
      </view>
  ```
 
-  - **注意**：
+- **注意**：
 
     - 小程序当中的 `input`，很小很容看不清(**应该说不点根本看不清**)
 
@@ -732,7 +732,7 @@ console.log(appInstance.globalData) // I am global data
 
   > `input` 双向绑定的时候会报警告
 
-  - 给 `input` **绑定**一个 `input` **事件**即可
+    - 给 `input` **绑定**一个 `input` **事件**即可
 
 
 
@@ -758,8 +758,8 @@ console.log(appInstance.globalData) // I am global data
 
 - ##### 特殊事件
 
-  - 比如 `input` 有 `bindinput`/ `bindblur` / `bindfocus`等
-  - 比如 `scroll-view` 有 `bindscrolltowpper` / `bindscrolltolower` 等
+    - 比如 `input` 有 `bindinput`/ `bindblur` / `bindfocus`等
+    - 比如 `scroll-view` 有 `bindscrolltowpper` / `bindscrolltolower` 等
 
 
 
@@ -790,10 +790,10 @@ console.log(appInstance.globalData) // I am global data
 
 - 其他 `event` 事件属性
 
-  - `timeStamp`: integer 生成事件的事件
-  - `type`：事件类型
-  - `target`：点击的元素
-  - `currentTarget`：绑定的元素
+    - `timeStamp`: integer 生成事件的事件
+    - `type`：事件类型
+    - `target`：点击的元素
+    - `currentTarget`：绑定的元素
 
 
 
@@ -873,8 +873,8 @@ console.log(appInstance.globalData) // I am global data
 
    > 因此在数组元素或对象属性被修改的情况下需要，**全部进行替换。**
 
-  - 小程序中 this.setData() 方法是**同步**的
-  - react 中是异步的
+- 小程序中 this.setData() 方法是**同步**的
+- react 中是异步的
 
 
 
@@ -908,11 +908,11 @@ console.log(appInstance.globalData) // I am global data
 
   > 为了解决这个问题，因该是考虑到直接绑定 `appServer` 中的数据会比较繁琐，耗费性能，就直接让wxs跑在webview 线程中
 
-  - `wxs`是直接跑在 `webview` 线程进行实现的
+    - `wxs`是直接跑在 `webview` 线程进行实现的
 
-  - 官方称wxs不是js，但是和 **es5 语法几乎一样（不能使用es6的语法）**
+    - 官方称wxs不是js，但是和 **es5 语法几乎一样（不能使用es6的语法）**
 
-    > 提示：据说由于运行环境的原因，在 iphone 的微信上运行速度是 android 2~20倍
+      > 提示：据说由于运行环境的原因，在 iphone 的微信上运行速度是 android 2~20倍
 
 - 因此，不在同一个线程中也是**不能和 `js` 进行相互调用**，同理也**不能调用小程序的 `api`**
 
@@ -928,18 +928,18 @@ console.log(appInstance.globalData) // I am global data
 
 - **注意**：
 
-  - 最好**只进行简单的运算**，否则会影响页面的渲染进程的，而且**不能使用`debugger`**，复杂的逻辑也容易排查。
+    - 最好**只进行简单的运算**，否则会影响页面的渲染进程的，而且**不能使用`debugger`**，复杂的逻辑也容易排查。
 
-  - **只能使用 es5 语法**，在函数中使用 es6 语法不会报错要注意这个坑，不好排查，**变量要用var声明**
+    - **只能使用 es5 语法**，在函数中使用 es6 语法不会报错要注意这个坑，不好排查，**变量要用var声明**
 
-  - **只能使用 Commonjs 模块化**
+    - **只能使用 Commonjs 模块化**
 
-    > 每个模块都**有自己独立的作用域**。即在一个模块里面定义的变量与函数，**默认为私有的**，对其他模块不可见；
-    > 一个模块要想对外暴露其内部的私有变量与函数，只能通过 `module.exports` 实现；
-    >
-    > - 不支持 exports.varable = "zhangsan"
+      > 每个模块都**有自己独立的作用域**。即在一个模块里面定义的变量与函数，**默认为私有的**，对其他模块不可见；
+      > 一个模块要想对外暴露其内部的私有变量与函数，只能通过 `module.exports` 实现；
+      >
+      > - 不支持 exports.varable = "zhangsan"
 
-  - 在使用**基本数据类型构造函数**进行类型转化的时候**只能转化形参**，自定义变量**不能进行转换**
+    - 在使用**基本数据类型构造函数**进行类型转化的时候**只能转化形参**，自定义变量**不能进行转换**
 
 
 
@@ -1074,9 +1074,9 @@ console.log(appInstance.globalData) // I am global data
 
 - **子传父**：
 
-  - 是**通过 `this.triggerEvent()` 进行传值的**，`vue` 使用的是 `this.$emit（）`
+    - 是**通过 `this.triggerEvent()` 进行传值的**，`vue` 使用的是 `this.$emit（）`
 
-  - 会将传入的值，**赋值给事件对象 `event` 中的 `detail` 属性**
+    - 会将传入的值，**赋值给事件对象 `event` 中的 `detail` 属性**
 
   ```js
     this.triggerEvent("trigger", {message: "emitsfasldfj"})
@@ -1090,29 +1090,29 @@ console.log(appInstance.globalData) // I am global data
 
 - #### 课题一：组件内的样式 对 外部样式 的影响
 
-  - 结论一：组件内的 `class` 样式，只对组件 `wxml` 内的节点生效, 对于引用组件的 `Page` 页面不生效。
+    - 结论一：组件内的 `class` 样式，只对组件 `wxml` 内的节点生效, 对于引用组件的 `Page` 页面不生效。
 
-  - 结论二：组件内不能使用id选择器、属性选择器、标签选择器
+    - 结论二：组件内不能使用id选择器、属性选择器、标签选择器
 
-  - ##### 总结
+    - ##### 总结
 
-    - 简单说就是**组件内的 class选择器样式”不会“**和 `page` 或者 其他组件**相互影响**
-    - **但是，使用其他的选择器就会相互影响了**，所以尽量要使用 `class` 选择器
+        - 简单说就是**组件内的 class选择器样式”不会“**和 `page` 或者 其他组件**相互影响**
+        - **但是，使用其他的选择器就会相互影响了**，所以尽量要使用 `class` 选择器
 
 
 
 - #### 课题二：外部样式 对 组件内样式 的影响
 
-  - 结论一：外部使用class的样式，只对外部wxml的class生效，对组件内是不生效的
+    - 结论一：外部使用class的样式，只对外部wxml的class生效，对组件内是不生效的
 
-  - 结论二：外部使用了id选择器、属性选择器不会对组件内产生影响
+    - 结论二：外部使用了id选择器、属性选择器不会对组件内产生影响
 
-  - 结论三：外部使用了标签选择器，会对组件内产生影响
+    - 结论三：外部使用了标签选择器，会对组件内产生影响
 
-  - ##### 总结
+    - ##### 总结
 
-    - page 的 **id 和 class 选择器”不会“**和组件样式相互影响
-    - 但是**标签选择器** ”会“ **影响**组件的样式
+        - page 的 **id 和 class 选择器”不会“**和组件样式相互影响
+        - 但是**标签选择器** ”会“ **影响**组件的样式
 
 
 
@@ -1125,17 +1125,17 @@ console.log(appInstance.globalData) // I am global data
 
 - ##### 选项 `styleIsolation`
 
-  - `isolated` ：**默认值**
+    - `isolated` ：**默认值**
 
-    > 表示启用样式隔离，在自定义组件内外，使用 class 指定的样式将不会相互影响；
+      > 表示启用样式隔离，在自定义组件内外，使用 class 指定的样式将不会相互影响；
 
-  - `apply-shared`
+    - `apply-shared`
 
-    > 表示页面 wxss 样式将影响到自定义组件，但自定义组件 wxss 中指定的样式不会影响页面；
+      > 表示页面 wxss 样式将影响到自定义组件，但自定义组件 wxss 中指定的样式不会影响页面；
 
-  - `shared`
+    - `shared`
 
-    > 表示页面 wxss 样式将影响到自定义组件，自定义组件 wxss 中指定的样式也会影响页面和其他设置 了
+      > 表示页面 wxss 样式将影响到自定义组件，自定义组件 wxss 中指定的样式也会影响页面和其他设置 了
 
 
 
@@ -1147,11 +1147,11 @@ console.log(appInstance.globalData) // I am global data
 
   > 直接给组件添加一个**属性**，**属性绑定** class 的name ，这里**不用** `mustache` 绑定
 
-  - 子组件使用  `externalClasses` 可选项接收之后，可以直接在页面使用
+    - 子组件使用  `externalClasses` 可选项接收之后，可以直接在页面使用
 
-  - **例：**
+    - **例：**
 
-    - ##### 注意：绑定的属性不能使用驼峰标记
+        - ##### 注意：绑定的属性不能使用驼峰标记
 
   ```html
     <!--绑定class-->
@@ -1238,7 +1238,7 @@ console.log(appInstance.globalData) // I am global data
 
   > 区别就是，在小程序中**使用多插槽**的时候**需要配置可选项**
 
-  - 小程序中`Component` 函数的可选项中会有，`options` 的一个额外的配置，可选项
+    - 小程序中`Component` 函数的可选项中会有，`options` 的一个额外的配置，可选项
 
   ```js
     Component({
@@ -1252,7 +1252,7 @@ console.log(appInstance.globalData) // I am global data
 
 - ##### 使用绑定
 
-  - 具名插槽的**声明和 ** `vue` 类似，在 `slot` 组件上设置 `name` 属性
+    - 具名插槽的**声明和 ** `vue` 类似，在 `slot` 组件上设置 `name` 属性
 
   > 绑定使用的是 `vue` 以前的语法 `slot=”default“`
 
@@ -1419,8 +1419,8 @@ Component({
 
    > 记录了整个页面或者 **app 结构所需要的基本 api 方法 和 配置方式**。
 
-  - **页面的 api 例**：`onReachBottom` 事件，`data` 对象，生命周期的方法，获取当前页面，获取当前页面
-  - app 的配置 page 的配置。
+- **页面的 api 例**：`onReachBottom` 事件，`data` 对象，生命周期的方法，获取当前页面，获取当前页面
+- app 的配置 page 的配置。
 
 
 
@@ -1573,7 +1573,7 @@ module.exports = req
   > cancel: true: 已取消
   > confirm: true：已确认
 
-  - 其他配置查看文档，`api` 界面
+    - 其他配置查看文档，`api` 界面
 
 ```js
         wx.showModal({
@@ -1801,11 +1801,11 @@ module.exports = req
 
    > 关闭当前页面，返回上级
 
-  - `delta `: `number` 类型，默认值1
+- `delta `: `number` 类型，默认值1
 
-    >  **如果 `delta` 大于现有页面数，则返回到首页。**
+  >  **如果 `delta` 大于现有页面数，则返回到首页。**
 
-  - 返回主页面
+- 返回主页面
 
   ```js
         backMain() {
@@ -1959,8 +1959,8 @@ module.exports = req
 
 4. 修改之后可以在此查看**主包**和**分包**的代码大小
 
-  - 主包：`pages` 中的页面就是主包，在`appjs` 中 `pages` 选项配置
-  - 子包：在 `subpackages` 字段进行配置，具体查看官方文档
+- 主包：`pages` 中的页面就是主包，在`appjs` 中 `pages` 选项配置
+- 子包：在 `subpackages` 字段进行配置，具体查看官方文档
 
 5. 重点：分包和分包之间的资源不能相互引用，分包只能引用主包的js或者template
 

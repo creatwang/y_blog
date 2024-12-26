@@ -48,8 +48,6 @@ const links = computed(() => [toc?.bottom?.edit && {
     />
 
     <UPageBody prose>
-      <UButton @click="() => console.log(page)">trigger</UButton>
-
       <ContentRenderer
         v-if="page.body"
         :value="page"

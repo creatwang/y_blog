@@ -112,7 +112,7 @@ React的组件相对于Vue更加的灵活和多样，按照不同的方式可以
 
 - btnClick函数并不是我们主动调用的，而且当button发生改变时，React内部调用了btnClick函数，调用时，并不知道要如何绑定正确的this；
 
-  ```jsx
+  ```typescript
   <button onClick={this.trigger}>trigger</button>
   //会将jsx 对象组件中的事件绑定 转换为
   React.createElement("button", {onClick: this.trigger})
@@ -132,7 +132,7 @@ React的组件相对于Vue更加的灵活和多样，按照不同的方式可以
 
   > 因为bind 返回的函数传入的参数，会排在 app.bind(argus) 调用时传入的参数后面
 
-```jsx
+```typescript
 <script type="text/babel">
     
   class App extends React.Component {
@@ -179,7 +179,7 @@ React的组件相对于Vue更加的灵活和多样，按照不同的方式可以
 
   > 因为如果传参的话相当于调用了
 
-```jsx
+```typescript
   class App extends React.Component {
 	{/*这里使用 es13 的pulic 公共字段*/}
     trigger = (e, message) => {
@@ -205,7 +205,7 @@ React的组件相对于Vue更加的灵活和多样，按照不同的方式可以
 
 - 既可以方便的**传递参数**，也可以获取到**事件对象**
 
-```jsx
+```typescript
     render() {
       return (
         <div>
@@ -268,7 +268,7 @@ React的组件相对于Vue更加的灵活和多样，按照不同的方式可以
 
   > 更新后的state
 
-```jsx
+```typescript
 class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -376,7 +376,7 @@ class Header extends React.Component {
   >
   > 省略的情况下可以直接 `this.props` 进行获取
 
-~~~jsx
+~~~typescript
 import React, { Component } from 'react'
 export class Home extends Component {
   //这里用p接收的，调用的时候还是使用this.props
@@ -400,7 +400,7 @@ export class Home extends Component {
 
 > 函数组件会将，`props` **传入函数组件的形参中**进行使用
 
-~~~jsx
+~~~typescript
 export function Foo(props) {
   return(
     <div>
@@ -416,7 +416,7 @@ export function Foo(props) {
 
 - 支持通过 `{}` 语法，直接将对象，的属性批量绑定到子组件上
 
-```jsx
+```typescript
 <SubApp {...attr}/>
 ```
 
@@ -435,7 +435,7 @@ export function Foo(props) {
 
 - 函数组件和`class`组件的类型校验和默认值**相同**的
 
-  ~~~jsx
+  ~~~typescript
   import propTypes  from 'prop-types'
   //Home 是class名 | 函数名
   //类型校验
@@ -462,7 +462,7 @@ export function Foo(props) {
 
 - 函数组件和 `class` 组件是一样的
 
-  ~~~jsx
+  ~~~typescript
   //父组件，给子组件传入一个函数
   <SubTab desc={e => this.trigger(e)} list={this.state.list}/>
   
@@ -480,7 +480,7 @@ export function Foo(props) {
 
 1. ##### 需要创建一个 Context
 
-   ~~~jsx
+   ~~~typescript
    import React from "react"
    export const  AboutCtx = React.createContext("AboutCtx 的默认值")
    ~~~
@@ -491,7 +491,7 @@ export function Foo(props) {
 
    - **注意**：这里**接收值的 `value` 属性是固定**的，**必须**要这样传。
 
-   ~~~jsx
+   ~~~typescript
    import React, { Component } from 'react'
    import Sub from './Sub'
    import {HomeCtx} from './ctx/HomeCtx'
@@ -526,7 +526,7 @@ export function Foo(props) {
      - **函数组件使用** `Context` 的时候**也是如此，通过 `Consumer` 属性**
      - 回默认调用包裹的函数，将祖先 `Provider` 传入的 `value` 的值，赋值给该函数的形参
 
-   ~~~jsx
+   ~~~typescript
    import React, { Component } from 'react'
    import {AboutCtx} from './ctx/AboutCtx'
    import {HomeCtx} from './ctx/HomeCtx'
@@ -575,7 +575,7 @@ export function Foo(props) {
 
   > 简单只有一个的时候，推荐使用，多个可以使用Props 的方式
   
-  ~~~jsx
+  ~~~typescript
   //这里是父组件
     render() {
     return (
@@ -632,7 +632,7 @@ export function Foo(props) {
 
 - ##### 父元素
 
-~~~jsx
+~~~typescript
 import React, { PureComponent } from 'react'
 import Sub from './Sub'
 
@@ -674,7 +674,7 @@ export default App
 - 同样子传父的方式，将值回传，
 - 调用回传函数的时候，根据状态组装 react 元素
 
-~~~jsx
+~~~typescript
   let el = props.titles.map((val, index) => {
     return (
       <div className='item' onClick={e => props.call(index)} key={val}>
@@ -694,7 +694,7 @@ export default App
 
 - 其实就是父子组件传值，给好 `props` 默认值即可
 
-~~~jsx
+~~~typescript
 //配置默认插槽
 Sub.defaultProps={
   center: (
@@ -753,7 +753,7 @@ Sub.propTypes = {
 
 - 在 `SCU` 中进行判断，更新前后的 `state/props` 是**否发生了改变**，如果改变了，在进行更新，**否则不执行`render`函数**
 
-  ~~~jsx
+  ~~~typescript
     shouldComponentUpdate(newProps, nextState) {
       // 自己对比state是否发生改变: this.state和nextState
       if (this.props.message !== newProps.message) {
@@ -784,7 +784,7 @@ Sub.propTypes = {
 
 - `memo` 会在父组件中`setSate()` 触发 `render` 函数时，导致子组件更新时，会进行`SPU`校验，来决定是否真正的执行
 
-  ~~~jsx
+  ~~~typescript
   const Foo = memo(forwardRef((props) => {
     return (
       <div ref={ref}>zhangsan</div>
@@ -835,7 +835,7 @@ Sub.propTypes = {
 - 通过 `{}` 语法**绑定**到，**`React`元素**中 **`ref` 属性**上
 - 之后通过 “**`ref`对象**” 的 `current` 属性获取 `dom` 元素
 
-~~~jsx
+~~~typescript
   trigger() {
     console.log(this.boxRef.current);
   }
@@ -856,7 +856,7 @@ Sub.propTypes = {
 - `ref` 可以**绑定一个函数**，dom元素会赋值给该函数的形参
 - 由于渲染的时候就会执行该函数，**将形参进行保存**
 
-~~~jsx
+~~~typescript
   render() {
     return (
         {/*当该元素渲染的时候，“执行” ref 邦定的函数并将dom元素，赋值给形参*/}
@@ -887,7 +887,7 @@ Sub.propTypes = {
 
   > 这样的话就可以在子组件中，在**通过 `ref` 属性绑定到其他的 `React` 元素上**了
 
-~~~jsx
+~~~typescript
 import React, { PureComponent, memo, createRef, forwardRef } from 'react'
 
 const Foo = memo(forwardRef((props, ref) => {
@@ -957,7 +957,7 @@ export default forwarkRef
 
 ### input
 
-~~~jsx
+~~~typescript
 <input 
     type="text" 
     value={this.state.val} 
@@ -970,7 +970,7 @@ export default forwarkRef
 
 > 在组件状态中手动整理，选中的数组，保存到状态中，同一发送请求
 
-~~~jsx
+~~~typescript
 
 hobbies.map((item, index) => {
    return (
@@ -994,7 +994,7 @@ hobbies.map((item, index) => {
 
 - 要注意的是， `react` 中的 `select` 元素无论是单选还是多选**属性值都是 `Array`类型**
 
-~~~jsx
+~~~typescript
 this.state = {hobbies: ["song"]}
 
 trigger(e) {
@@ -1082,7 +1082,7 @@ trigger(e) {
 
 - 这种方式的主要目的就是共享数据
 
-~~~jsx
+~~~typescript
 import { Fragment } from "react";
 import React, { PureComponent } from 'react'
 
@@ -1116,7 +1116,7 @@ export default bar
   - 要么是 `class` 组件
   - 要么是 `function `组件
 
-~~~jsx
+~~~typescript
 import { Fragment } from "react";
 import {infoCtx} from "../ctx/infoCtx"
 
@@ -1147,7 +1147,7 @@ export function CtxProvider(Cpn) {
 
 - 根据 `prop` 传入的值进行判断需要显示的组件
 
-~~~jsx
+~~~typescript
 import React, { PureComponent } from 'react'
 import About from '../conponents/About'
 import Home from '../conponents/Home'
@@ -1201,7 +1201,7 @@ export function IsLogin(Cpn) {
 
      > 参数一的 `React` 元素，会挂载到参数二原生dom元素上
 
-  ~~~jsx
+  ~~~typescript
   import React, { PureComponent } from 'react'
   import { createPortal } from 'react-dom'
   
@@ -1242,7 +1242,7 @@ export function IsLogin(Cpn) {
   - 使用语法糖的时候不需要导入 `Frament` 组件
   - 如果需要绑定属性：例如 `for` 循环 `key` 的话，只能使用 完成写法 `Fargment`
 
-~~~jsx
+~~~typescript
 import React, { Fragment, PureComponent } from 'react'
 
 export class App extends PureComponent {
@@ -1308,7 +1308,7 @@ export default App
 - 只需要需要开启 严格模式的组件进行，包裹即可
 - 或者直接包裹根组件
 
-~~~jsx
+~~~typescript
 import React, { Fragment, PureComponent, StrictMode } from 'react'
   render() {
     return (

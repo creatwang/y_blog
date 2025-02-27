@@ -84,7 +84,7 @@ pixelRatio :设备像素比
 
 底部的导航栏计算公式:
 
-```jsx
+```typescript
 const tabbarHeight = ( screenHeight - windowHeight - statusBarHeight ) * pixelRatio
 ```
 
@@ -222,7 +222,7 @@ App({
 
 页面调用
 
-~~~jsx
+~~~typescript
  <scroll-view class="warp" style="height: {{mainHeight}};" scroll-y >
  
 

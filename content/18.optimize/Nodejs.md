@@ -1545,7 +1545,7 @@ req.cookies.zhangsn
 
 ### 基本语法
 
-~~~jsp
+~~~html
 <%  %>流程控制标签（写的是if else,for 条件判断语句)
 
 <div class="conteiner">

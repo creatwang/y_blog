@@ -919,7 +919,7 @@ this.$emit('update:title', newTitle)
 
 > 通过 `v-on` 绑定父组件的事件
 
-~~~jsx
+~~~typescript
       <el-tree
         v-show="treeFlag"
         v-bind="$attrs"

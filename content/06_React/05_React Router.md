@@ -85,7 +85,7 @@
 
 > 同vue相似、使用路径参数进行占位
 
-~~~jsx
+~~~typescript
 <Route path="/detail/:id" component={Detail}/>
 ~~~
 
@@ -93,7 +93,7 @@
 
 **获取**：通过 `match` 对象中的 `params` 进行获取
 
-~~~jsx
+~~~typescript
 <h2>Detail: {this.props.match.params.id}</h2>
 ~~~
 
@@ -103,7 +103,7 @@
 
 > 就是 queryString 的传值方式
 
-~~~jsx
+~~~typescript
 <NavLink to="/detail2?name=why&age=18">详情2</NavLink>
 ~~~
 
@@ -111,7 +111,7 @@
 
 **获取**：通过 `location` 对象中的 `search` 属性进行获取
 
-~~~jsx
+~~~typescript
     console.log(this.props.location.search); // ?name=why&age=18
 ~~~
 
@@ -119,7 +119,7 @@
 
 ##### to传入对象；
 
-~~~jsx
+~~~typescript
 <NavLink to={{
     pathname: "/detail2", 
     query: {name: "kobe", age: 30},
@@ -154,7 +154,7 @@
 
 4. 引入组件使用的 `component`
 
-   ~~~jsx
+   ~~~typescript
    <Switch>
        {/*另外这里的路由指定的组件是没有标签包裹的*/}
      <Route exact path="/" component={Home} />
@@ -173,7 +173,7 @@
 
 6. exact：boolean 类型，精准匹配，只有精准匹配到完全一致的路径，才会渲染对应的组件；
 
-   ~~~jsx
+   ~~~typescript
    <Route exact path="/" component={Home} />
    ~~~
 
@@ -284,7 +284,7 @@
 
 - `router5 `中 `exact`精准匹配，否则两个组件都会显示，router6已经取消了
 
-~~~jsx
+~~~typescript
 const App = memo(() => {
   return (
     <BrowserRouter>
@@ -314,7 +314,7 @@ const App = memo(() => {
 
 - 同 `vue` 动态路由，**路径参数相同**
 
-~~~jsx
+~~~typescript
 <div className="box">
     <Routes>
         <Route path="/" element={<Navigate to="/home"/>}/>
@@ -331,7 +331,7 @@ const App = memo(() => {
 
 - `path` 属性值： `*` 代表**通配**，当所有路由**都匹配不到**的时候，**会匹配 `*` 的路由**
 
-~~~jsx
+~~~typescript
 <Routes>
     <Route path="/" element={<Navigate to={"/home"}/>}/>
     <Route path="/home" element={<Home/>}></Route>
@@ -377,7 +377,7 @@ const App = memo(() => {
 
     > Style 属性可以传入一个函数
 
-    ~~~jsx
+    ~~~typescript
     <NavLink to={"/about"} 
         className={
             //传入一个函数，形参是一个对象，形参的isActive 属性，来判断是否选中
@@ -412,7 +412,7 @@ const App = memo(() => {
 
   > `Navigate` 不是 ~~Navigator~~
 
-~~~jsx
+~~~typescript
 <div className="content">
     {flag ? <Navigate to="/message"/> : 
        		<button onClick={e => this.trigger(e)}
@@ -433,7 +433,7 @@ const App = memo(() => {
 - 根据 `to` 属性跳转到指定的路由组件。
 - 还有一个 `Navigate` 对象
 
-~~~jsx
+~~~typescript
 <Routes>
     <Route path="/" element={<Navigate to={"/home"} />}/>
     <Route path="/home" element={<Home/>} ></Route>
@@ -462,7 +462,7 @@ const App = memo(() => {
 
   - 跳转也是同样，**就记住：加全路径**
 
-~~~jsx
+~~~typescript
 <Routes>
     <Route path='/home' element={<Home/>}>
         <Route path='/home' element={<Navigate to="/home/recommend"/>}/>
@@ -481,7 +481,7 @@ const App = memo(() => {
 
 - 如果在 `home`下嵌套的话
 
-  ~~~jsx
+  ~~~typescript
   <Switch>
       <Route path='/home' element={<Home/>}/>
   </Switch>
@@ -491,7 +491,7 @@ const App = memo(() => {
 
 - 需要在 `Home` 组件中进行嵌套
 
-  ~~~jsx
+  ~~~typescript
   //home组件
   return (
       <div>
@@ -581,7 +581,7 @@ navigate(path, options)
 
 - **返回值**：`Object` 类型，路径参数为`key`，路径`path` 为 `value`
 
-  ~~~jsx
+  ~~~typescript
   //1、定义
   <Route path="/profile/:id" element={<Profile/>}></Route>
   //2、跳转
@@ -633,7 +633,7 @@ navigate(path, options)
 - 通过，高阶组件进行扩展
 - router5 默认会有这个函数，在exports对象里面
 
-​~~~jsx
+​~~~typescript
 import React, { memo } from 'react'
 import { useNavigate, useParams, useLocation, useSearchParams} from 'react-router-dom'
 
@@ -721,7 +721,7 @@ export const routes = [
 - **前提二**：`Suspense`  由于是懒加载，需要下载组件文件之后才进行渲染，所以要使用 `Suspense` 组件，在下载 `js` 期间显示一个同步等待的组件。
 - **注意**：只能在函数组件中使用
 
-~~~jsx
+~~~typescript
 <div className="box">
 	{useRoutes(routes)}
 </div>
@@ -758,7 +758,7 @@ const About = lazy(() => import(/* webpackChunkName: "about" */'../pages/About')
 
   > ##### 包裹异步路由组件
 
-  ~~~jsx
+  ~~~typescript
   <Suspense fallback={<h3>zhangasn</h3>}>
       <div className="container">
           <Link to="/home">home</Link>
@@ -837,7 +837,7 @@ export default routes;
 
 > router5 的api，同useRoutes()做用相同
 
-~~~jsx
+~~~typescript
 <div class="container">
 	{renderRoutes(routes)}
 </div>

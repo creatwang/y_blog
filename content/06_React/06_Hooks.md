@@ -194,7 +194,7 @@
 
 
 
-~~~jsx
+~~~typescript
 const About = memo(() => {
 
   const [counter, setCounter] = useState(0)
@@ -240,7 +240,7 @@ const About = memo(() => {
 
 - **用法一**：通过 `ref` 属性获取，`react` 组件实例，或者原生`dom`
 
-  ~~~jsx
+  ~~~typescript
   import React, { memo, useRef } from 'react'
   
   const App = memo(() => {
@@ -311,7 +311,7 @@ const About = memo(() => {
 
 - **参数二**：`Array` 类型，函数做**依赖**的值
 
-  ~~~jsx
+  ~~~typescript
   const Counter = memo(() => {
   
     const [counter, setCounter] = useState(0)
@@ -360,7 +360,7 @@ const About = memo(() => {
 
 - 利用 `useRef` 这一个特性，可以不用给 `useCallBack` 传入，依赖值让它**一直是闭包的状态即可**
 
-  ~~~jsx
+  ~~~typescript
   const Counter = memo(() => {
   
     const [counter, setCounter] = useState(0)
@@ -444,7 +444,7 @@ const About = memo(() => {
 
 ### 2、使用
 
-~~~jsx
+~~~typescript
 import React, { memo } from 'react'
 import { useState } from 'react'
 import { useMemo } from 'react'
@@ -507,7 +507,7 @@ export default Counter
 
 
 
-~~~jsx
+~~~typescript
 import React, { memo } from 'react'
 import { useReducer } from 'react'
 
@@ -574,7 +574,7 @@ export default Counter
 
 - 参数：`Context` 实例
 
-~~~jsx
+~~~typescript
 import React, { memo } from 'react'
 import { useContext } from 'react'
 import {CounterCtx} from '../context/counterCtx'
@@ -610,7 +610,7 @@ export default Counter
 
 - 一般情况下不会使用
 
-~~~jsx
+~~~typescript
 import React, { memo, useImperativeHandle, useRef, forwardRef } from 'react'
 //接收父组件传入的ref
 const About = memo(forwardRef((props, ref) => {
@@ -660,7 +660,7 @@ export default About
 
 - 渲染频率过高的情况下，将**不必要的重新计算的逻辑**数据**进行记忆**
 
-~~~jsx
+~~~typescript
 import { useEffect, useState } from "react"
 
 export function useFetchXy() {
@@ -688,7 +688,7 @@ export function useFetchXy() {
 
 ### 2、封装localStorage
 
-~~~jsx
+~~~typescript
 import { useEffect } from "react"
 import { useState } from "react"
 
@@ -753,7 +753,7 @@ export default useLocalStorage
 
   
 
-~~~jsx
+~~~typescript
 import React, { memo } from 'react'
 import { forwardRef } from 'react'
 import { shallowEqual, useSelector } from 'react-redux'
@@ -787,7 +787,7 @@ export default About
 
 - 每次更新都会 `reducer` 都会返回一个新的 `state`
 
-~~~jsx
+~~~typescript
  import React, { memo } from 'react'
  import { shallowEqual, useDispatch } from 'react-redux'
  import {addCounter} from '../store/counterStore'
@@ -873,7 +873,7 @@ export default About
 
 - `faker` 使用方法看 `github`
 
-~~~sh
+~~~shell
 npm install --save-dev @faker-js/faker
 ~~~
 
@@ -887,7 +887,7 @@ npm install --save-dev @faker-js/faker
   - `startTransition`：`function` 类型，启动过渡任务的函数
     - 参数：也是函数类型，包裹过渡任务
 
-~~~jsx
+~~~typescript
 import React, { memo, useState, useTransition } from 'react'
 import namesArray from './namesArray'
 
@@ -931,7 +931,7 @@ export default App
 - **官方解释**：`useDeferredValue` 接受一个值，并返回该值的新副本，该副本将推迟到更紧急地更新之后。
 - **个人理解**：和 `toTransition` 作用相同，就是少了个 `pending`
 
-~~~jsx
+~~~typescript
 import React, { memo , useDeferredValue, useState} from 'react'
 import {arr} from '../utils/faker/fakerCitys'
 

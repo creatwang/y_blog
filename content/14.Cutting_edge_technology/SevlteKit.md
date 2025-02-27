@@ -350,7 +350,7 @@ import '$lib/styles/style.scss'
 
 安装 mdsvex：
 
-~~~SHELL
+~~~shell
 npm i -D mdsvex
 ~~~
 
@@ -358,7 +358,7 @@ npm i -D mdsvex
 
 将 mdsvex 添加到我们的配置中。打开`svelte.config.js`，
 
-~~~JS
+~~~javascript
 // svelte.config.js
 /* Other imports here */
 import { mdsvex } from 'mdsvex'

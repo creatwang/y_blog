@@ -241,7 +241,7 @@ app.on('activate', () => {
 
 1、安装 `nodemon` 
 
-~~~sh
+~~~shell
 npm i nodemon -D
 ~~~
 
@@ -1545,7 +1545,7 @@ console.log(image)
 
 安装  `electron-builder ` 打包
 
-~~~sh
+~~~shell
 npm install electron-builder -D
 ~~~
 

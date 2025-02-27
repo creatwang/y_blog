@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import {readFileSync} from "node:fs";
+
 export default defineNuxtConfig({
   extends: ['@nuxt/ui-pro'],
 
@@ -16,7 +18,6 @@ export default defineNuxtConfig({
     // Define `@nuxt/ui` components as global to use them in `.md` (feel free to add those you need)
     'components:extend': (components) => {
       const globals = components.filter(c => ['UButton', 'UIcon'].includes(c.pascalName))
-
       globals.forEach(c => c.global = true)
     }
   },
@@ -27,7 +28,18 @@ export default defineNuxtConfig({
   content: {
     markdown: {
       toc: { depth: 4, searchDepth: 4 },
-      anchorLinks: { depth: 4 }
+      anchorLinks: { depth: 4 },
+    },
+    highlight: {
+      langs: [
+        JSON.parse(readFileSync('./shiki/languages/less.json', 'utf-8')),
+        JSON.parse(readFileSync('./shiki/languages/xml.json', 'utf-8')),
+        JSON.parse(readFileSync('./shiki/languages/ssh-config.json', 'utf-8')),
+        JSON.parse(readFileSync('./shiki/languages/dart.json', 'utf-8')),
+        JSON.parse(readFileSync('./shiki/languages/scss.json', 'utf-8')),
+        JSON.parse(readFileSync('./shiki/languages/sql.json', 'utf-8')),
+        'fs'
+      ]
     }
   },
   nitro: {

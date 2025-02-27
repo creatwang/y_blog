@@ -643,7 +643,7 @@ this.$store.commit(TRIGGER_BTN)
 
 - 同 mapGetters **第一个参数可选，是 `moudle` 的命名空间**
 
-~~~JS
+~~~javascript
 import {mapMutations} from "vuex";
 import {EDIT, PUSH_LIST} from "../module"
 export default {

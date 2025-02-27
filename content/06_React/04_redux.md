@@ -174,7 +174,7 @@ console.log(store.getState())
 
 - 当通过 `dispatch` 进行 `state` 修改的时候，会自动调用 `subscribe` 的回调
 
-~~~jsx
+~~~typescript
 //subscribe 会返回一个取消订阅的函数 执行 subscribe() 函数之后会取消订阅
 const unsubscribe = store.subscribe(() => {
   console.log("zhangsna", store.getState())
@@ -250,7 +250,7 @@ const unsubscribe = store.subscribe(() => {
 
 #### 1.1.创建上下文
 
-~~~jsx
+~~~typescript
 //1、创建上下文
 import {createContext} from 'react'
 export const Zhangsan = createContext()
@@ -260,7 +260,7 @@ export const Zhangsan = createContext()
 
 #### 1.2.提供上下文-store
 
-~~~jsx
+~~~typescript
 render() {
     return (
         //上下文中提供store
@@ -291,7 +291,7 @@ render() {
 
 ### 2、创建connect高阶函数实现自动刷新
 
-~~~jsx
+~~~typescript
 //创建connect高阶函数实现自动刷新
 import { PureComponent } from "react";
 import { Zhangsan } from '../ctx/Provider'
@@ -332,7 +332,7 @@ export function connect(mapStateToProps, mapActionToProps) {
 
 ### 1、导入内置上下文组件传入store
 
-~~~jsx
+~~~typescript
 import React, { PureComponent } from 'react'
 import {Provider} from 'react-redux'
 import Counter1 from '../components/Counter1'
@@ -360,7 +360,7 @@ export default App
 
 - **提示：**`connect(mapStateToProps, mapActionToProps)(Counter1)`，参数函数返回的对象属性都会添加到 `Counter1`组件的`props` 属性当中
 
-~~~jsx
+~~~typescript
 import React, { PureComponent } from 'react'
 //使用connect高阶函数
 import {connect} from 'react-redux'

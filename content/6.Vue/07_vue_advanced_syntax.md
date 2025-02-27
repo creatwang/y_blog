@@ -565,7 +565,7 @@ import {Tooltip, Popover} from 'element-ui';
   - return 后面的() 表示一个整体
   - **总结**：`setup` 函数 返回的是一个**函数**，`render` 返回的是一个**()**，**`setup` 语法糖，同样还是借助`template`**
 
-  ~~~jsx
+  ~~~typescript
   <script lang="jsx"> 
   //options Api写法
   import {ref} from "vue";

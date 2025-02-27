@@ -948,7 +948,7 @@ function foo(message?: string) :void {
 
   > 注意：没有具体类型的时候，ts 会在 “编写” 期间报错的
 
-~~~jsx
+~~~typescript
 
 //1.当获取image元素中src属性，默认推导的 Element 是没有 src 属性的，这个时候就需要类型断言
 const el = document.querySelector(".image")

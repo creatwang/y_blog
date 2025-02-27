@@ -61,7 +61,7 @@ shouldComponentUpdate render前，但是首次渲染的时候不会
 
 getDerivedStateFromProps render之前
 
-~~~jsx
+~~~typescript
 class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -83,7 +83,7 @@ class Header extends React.Component {
 
 getSnapshotBeforeUpdate(prevProps, prevState)，批量同步更新dom前
 
-~~~jsx
+~~~typescript
  getSnapshotBeforeUpdate(prevProps, prevState) {
     document.getElementById("div1").innerHTML =
     "在更新前喜欢的网站是：" + prevState.favoritesite;

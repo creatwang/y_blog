@@ -1044,7 +1044,7 @@ export default {
 
 - 通过 `$slots` 和 `$scopedSlots` 封装已有组件
 
-~~~jsx
+~~~typescript
       <el-tree
         v-show="treeFlag"
         v-bind="$attrs"
@@ -2031,7 +2031,7 @@ if (process.env.NODE_ENV === "development") {
 
    > 答案： 当 Vue 处理指令时，v-for 比 v-if 具有更高的优先级 ， 这意味着 **v-if 将分别重复运行于每个 v-for 循环中，造成性能方面的浪费**。 所以永远不要把 v-if 和 v-for 同时用在同一个元素上。
 
-   ~~~jsx
+   ~~~typescript
    <div id="app">
        {//避免这种情况，这样会for循环之后，在进行if判断}
        <p v-if="isShow" v-for="item in list">

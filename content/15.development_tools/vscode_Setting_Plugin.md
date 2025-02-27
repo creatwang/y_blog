@@ -333,7 +333,7 @@ mac
 
 `Preferences >Package Settings > Terminus > key Bindings`
 
-```jsx
+```typescript
 [
    {
         "keys":
@@ -1072,7 +1072,7 @@ ESLint 将自动在校验的文件目录里寻找 ESLint 配置文件，这个�
 
 常见配置 `.eslintrc.cjs`
 
-~~~JSON
+~~~json
 // @see: http://eslint.cn
 
 module.exports = {

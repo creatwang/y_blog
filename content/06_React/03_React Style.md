@@ -61,7 +61,7 @@
 
 - **注意**：`CSSTransition` **只**允许有**一个根**，
 
-~~~jsx
+~~~typescript
   import {CSSTransition, SwitchTransition, TransitionGroup} from 'react-transition-group'
   render() {
     const {isShow} = this.state
@@ -233,7 +233,7 @@
 
 - **`Transition` 中 key属性**：`SwitchTransition` 包裹的 `CSSTransition` 或 `Transition` 组件**不再**像以前那样**接受 `in` 属性来判断**元素是何种状态，**取而代之的是 `key` 属性；**
 
-~~~jsx
+~~~typescript
   render() {
     const {isShow} = this.state
     return (
@@ -273,7 +273,7 @@
 
 
 
-~~~jsx
+~~~typescript
   print() {
     const {books} = this.state
     let temp = books.map((item, index) => (
@@ -316,7 +316,7 @@
 
 - 对象写法 `style` 属性**绑定样式对象**
 
-~~~jsx
+~~~typescript
 export class App extends PureComponent {
   constructor() {
     super()
@@ -410,7 +410,7 @@ npm install @craco/craco
 - 只能使用模块化的导入方式 ，`require`、`import()异步导入`
 - 或者使用 `Portal` 向`header` 标签导入一个 `style` 元素
 
-~~~jsx
+~~~typescript
 require("./style.less") 
 //使用Portal
  render() {
@@ -452,7 +452,7 @@ require("./style.less")
 
   > 默认是 default 导入，直接使用导入对象使用
 
-~~~jsx
+~~~typescript
 import React, { PureComponent } from 'react'
 import app from "./index.module.less"
 export class App extends PureComponent {
@@ -534,7 +534,7 @@ export default App
 
 - 非常简单，下载之后导入使用
 
-  ~~~jsx
+  ~~~typescript
   import styled from 'styled-components'
   const ModuleCss = styled.div`
     .box {
@@ -576,7 +576,7 @@ export default App
 
    - **参数**：`Object` || `Function`
 
-~~~jsx
+~~~typescript
 //object 初始化一些属性
     import styled from 'styled-components';
     export const ModuleCss = styled.div.attrs({
@@ -636,7 +636,7 @@ export const Foo = styled(Bar)``
 
 - 使用
 
-  ~~~jsx
+  ~~~typescript
   import React, { PureComponent } from 'react'
   import classNames from 'classnames'
   

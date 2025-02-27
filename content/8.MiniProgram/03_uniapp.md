@@ -28,7 +28,7 @@ https://uniapp.dcloud.net.cn/component/uniui/uni-ui.html
 
 uni-ui是用js写的所以没有ts文件，需要手动下载类型声明文件
 
-```sh
+```shell
 npm i -D @uni-helper/uni-ui-types
 ```
 
@@ -262,7 +262,7 @@ export type XtxSwiperInstance = InstanceType<typeof XtxSwiper>
 
 ## 一、标签
 
-```jsx
+```typescript
 div = view
 
 text  = span
@@ -903,7 +903,7 @@ change() {
 
 > 去除摄像头挖孔的位置后，底部home图标
 
-```jsx
+```typescript
 <script setup lang="ts">
 // 获取屏幕边界到安全区域距离
 const { safeAreaInsets } = uni.getSystemInfoSync()

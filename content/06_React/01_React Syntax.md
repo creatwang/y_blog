@@ -192,7 +192,7 @@
 
    - **注意**：但是元素会正常显示
 
-   ~~~jsx
+   ~~~typescript
    //布尔类型需要转换成 String 之后才可以显示，不转化的话这里是个空标签 <div></div>
    <div>{this.state.flag.toString()}</div>
    ~~~
@@ -201,7 +201,7 @@
 
 10.  `Object` 不能作为 `jsx` 标签内容，会报错
 
-    ~~~jsx
+    ~~~typescript
         constructor() {
           super();
           this.state = {
@@ -246,7 +246,7 @@
 
 - jsx 最后还是要转换为 js，由于 `class` 是关键字，所以定义的时候要**使用`className` 替代 class**，**尽量避免冲突**
 
-~~~jsx
+~~~typescript
         <div>
           <button 
               className={`${this.state.flag ? 'box' : ''}`} 
@@ -269,7 +269,7 @@
 
 - **注意**：根据规范，这里的 `{{}}`，并不是 `mustache` 语法
 
-~~~jsx
+~~~typescript
           <button onClick={this.foo.bind(this)}>
             foo
           </button>
@@ -307,7 +307,7 @@
 
 - 实现 `v-show` 直接添加类即可
 
-~~~jsx
+~~~typescript
      let showElement = null
         if (isReady) {
           showElement = <h2>准备开始比赛吧</h2>
@@ -320,7 +320,7 @@
 
 ### 2、三元运算符
 
-~~~jsx
+~~~typescript
  <div>{ isReady ? <button>开始战斗!</button>: <h3>赶紧准备</h3> }</div>
 ~~~
 
@@ -333,7 +333,7 @@
 > - 用的很多
 > - false 是不会显示的
 
-~~~jsx
+~~~typescript
 <div>{ friend && <div>{friend.name + " " + friend.desc}</div> }</div>
 ~~~
 
@@ -353,7 +353,7 @@
 
 - 例：
 
-  ~~~jsx
+  ~~~typescript
   books.map((item, index) => {
                     return (
                       //key值，要添加，方便进行diff算法
@@ -490,7 +490,7 @@ this.setState({message: "zhangsan"}, () => {})
 
   > 参数：`callback`
 
-  ~~~jsx
+  ~~~typescript
        import { flushSync } from 'react-dom'
        flushSync(() => {
           this.setState({ message: "你好啊, 李银河" })

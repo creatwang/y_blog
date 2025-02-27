@@ -699,7 +699,7 @@ tsconfig.json		#Typescript的配置文件
 
 > 配置 `css` 有两种方式，一个是在 `app` 实例中设置在不指定 `scope` 的情况下设置，一个就是在 `nuxt.config.ts` 文件配置
 
-~~~sh
+~~~shell
 npm install sass --save-dev
 ~~~
 
@@ -840,7 +840,7 @@ npm install sass --save-dev
 
   - `to`：支持路由**路径**、**路由对象**、**`URL`**
 
-    ~~~jsx
+    ~~~typescript
      <NuxtLink
             :to="{
               path: '/category',
@@ -1025,7 +1025,7 @@ npm install sass --save-dev
 
   > 这个组件会接收一个 error 对象，包含当前项目发生的错误信息，和错误码....
 
-  ~~~jsx
+  ~~~typescript
   <template>
     <div>
       Error Page {{ error }}
@@ -1191,7 +1191,7 @@ npm install sass --save-dev
 
 -  当不指定name的时候使用的是**默认布局** `deault.vue`
 
-  ~~~jsx
+  ~~~typescript
   <template>
     <NuxtLayout :name="custom">
       <NuxtPage />
@@ -1205,7 +1205,7 @@ npm install sass --save-dev
 
   > 注意：这里如果需要切换布局组件的话，就**不要指定`name`属性**
 
-  ~~~jsx
+  ~~~typescript
     <NuxtLayout name="custom">
      {/*不要指定默认属性，否则切换失败*/}
     <NuxtLayout>
@@ -1553,7 +1553,7 @@ export default defineNuxtConfig({
 
 - 如果是一个**嵌套**的目录结构，会将**文件名+目录名**当作组件的名字
 
-  ~~~jsx
+  ~~~typescript
   | components/
   --| base/
   ----| foo/
@@ -1566,7 +1566,7 @@ export default defineNuxtConfig({
 
   > 建议关闭这种方式，之后手动导入，否则嵌套越深的话，组件名字越长
 
-  ~~~jsx
+  ~~~typescript
   //配置文件
   export default defineNuxtConfig({
     components: [
@@ -1590,7 +1590,7 @@ export default defineNuxtConfig({
 
 > 如果你的组件**不需要seo优化**的话，可以采用方式在组件名的后**添加 `.client`后缀**
 
-~~~jsx
+~~~typescript
 //路径
 | components/
 --| Comments.client.vue
@@ -1615,7 +1615,7 @@ export default defineNuxtConfig({
 
 
 
-~~~jsx
+~~~typescript
 <template>
   <component :is="clickable ? MyButton : 'div'" />
 </template>
@@ -1630,7 +1630,7 @@ const MyButton = resolveComponent('MyButton')
 
 > 如果不总是需要该组件，这尤其有用。通过使用`Lazy`前缀，你可以延迟加载组件代码，直到**合适的时刻**，这有助于优化你的JavaScript包大小。
 
-~~~jsx
+~~~typescript
 <template>
   <div>
     <h1>Mountains</h1>

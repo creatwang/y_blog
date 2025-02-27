@@ -227,7 +227,7 @@ onMounted(() => {
 
 - <a href="../../assets/json/world_map/country.json">country.json</a>
 
-~~~jsx
+~~~typescript
 <template>
 <div ref="map" class="container"></div>
 </template>

@@ -26,21 +26,26 @@ export default defineNuxtConfig({
     disableTransition: true
   },
   content: {
-    markdown: {
-      toc: { depth: 4, searchDepth: 4 },
-      anchorLinks: { depth: 4 },
+    renderer: {
+      anchorLinks: { h1: true, h2: true, h3: true, h4: true },
     },
-    highlight: {
-      langs: [
-        JSON.parse(readFileSync('./shiki/languages/less.json', 'utf-8')),
-        JSON.parse(readFileSync('./shiki/languages/xml.json', 'utf-8')),
-        JSON.parse(readFileSync('./shiki/languages/ssh-config.json', 'utf-8')),
-        JSON.parse(readFileSync('./shiki/languages/dart.json', 'utf-8')),
-        JSON.parse(readFileSync('./shiki/languages/scss.json', 'utf-8')),
-        JSON.parse(readFileSync('./shiki/languages/sql.json', 'utf-8')),
-        'fs'
-      ]
+    build: {
+      markdown: {
+        toc: { depth: 4, searchDepth: 4 },
+        highlight: {
+          langs: [
+            JSON.parse(readFileSync('./shiki/languages/less.json', 'utf-8')),
+            JSON.parse(readFileSync('./shiki/languages/xml.json', 'utf-8')),
+            JSON.parse(readFileSync('./shiki/languages/ssh-config.json', 'utf-8')),
+            JSON.parse(readFileSync('./shiki/languages/dart.json', 'utf-8')),
+            JSON.parse(readFileSync('./shiki/languages/scss.json', 'utf-8')),
+            JSON.parse(readFileSync('./shiki/languages/sql.json', 'utf-8')),
+            'fs'
+          ]
+        }
+      },
     }
+
   },
   nitro: {
     prerender: {
